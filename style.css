@@ -1,0 +1,181 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+#game-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+/* Oyun bilgi paneli */
+#ui-container {
+  position: absolute;
+
+  left: 20px;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-shadow: 1px 1px 2px black;
+  user-select: none;
+}
+
+#info-panel {
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+/* Damage Bar - Placeholder selector.  Needs to be adjusted to match actual selector in the game */
+#damage-bar {
+  background-color: rgba(255, 0, 0, 0.5);
+  border: 2px solid #ffffff;
+  /* Adding border to damage bar */
+  width: 100px;
+  /* Example width */
+  height: 20px;
+  /* Example height */
+}
+
+#touch-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  /* Varsayılan olarak gizli */
+  grid-template-columns: repeat(3, 60px);
+  grid-template-rows: repeat(3, 60px);
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  #touch-controls {
+    display: grid;
+    /* Mobil cihazlarda göster */
+  }
+}
+
+/* Mobil cihazlar için özelleştirmeler */
+@media (max-width: 768px) {
+  #info-panel {
+    font-size: 14px;
+  }
+
+  #touch-controls {
+    grid-template-columns: repeat(3, 50px);
+    grid-template-rows: repeat(3, 50px);
+  }
+
+  #touch-controls div {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+#game-container {
+  width: 100%;
+  height: 100vh;
+}
+
+#ui-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  user-select: none;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: 200px;
+}
+
+#damage-bar {
+  width: 100%;
+  height: 20px;
+  background-color: rgba(255, 0, 0, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+#speed-value, #pedestrian-count {
+  margin: 8px 0;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#damage-bar {
+  width: 200px;
+  height: 20px;
+  background-color: rgba(255, 0, 0, 0.5);
+  position: relative;
+  border: 1px solid white;
+  margin-bottom: 10px;
+}
+
+#speed-value,
+#pedestrian-count {
+  margin-top: 5px;
+}
+
+#key-info-panel {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1000;
+}
+
+#touch-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  /* Varsayılan olarak gizli */
+  grid-template-columns: repeat(3, 60px);
+  grid-template-rows: repeat(3, 60px);
+  gap: 10px;
+}
+
+/* Sadece mobil cihazlarda görüntüle */
+@media (max-width: 768px) {
+  #touch-controls {
+    display: grid;
+  }
+}
+
+#touch-controls div {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  user-select: none;
+}

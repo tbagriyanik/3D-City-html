@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D City</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #game-container {
+      width: 100%;
+      height: 100vh;
+    }
+
+    #ui-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      text-shadow: 1px 1px 2px black;
+      user-select: none;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+    }
+
+    #damage-bar {
+      width: 200px;
+      height: 20px;
+      background-color: rgba(255, 0, 0, 0.5);
+      position: relative;
+      border: 1px solid white;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="game-container"></div>
+  <div id="ui-container">
+    <div>
+      <div id="damage-bar"></div>
+    </div>
+    <div id="speed-value">Speed: 0 km/h</div>
+    <div id="pedestrian-count">Pedestrians: 30</div>
+  </div>
+
+  <!-- Load Three.js and Stats before our script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.159.0/three.min.js"></script>
+  <script src="https://mrdoob.github.io/stats.js/build/stats.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
