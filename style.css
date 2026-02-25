@@ -1,181 +1,190 @@
-body {
-  margin: 0;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
+:root {
+  --xp-blue: #245edc;
+  --xp-blue-dark: #123b9c;
+  --xp-green: #2b8a3e;
+  --window-border: #0e4ecf;
+  --title-gradient: linear-gradient(180deg, #1f68e7, #1652bc);
 }
 
-#game-container {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-}
-
-/* Oyun bilgi paneli */
-#ui-container {
-  position: absolute;
-
-  left: 20px;
-  color: white;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  text-shadow: 1px 1px 2px black;
-  user-select: none;
-}
-
-#info-panel {
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
-}
-
-/* Damage Bar - Placeholder selector.  Needs to be adjusted to match actual selector in the game */
-#damage-bar {
-  background-color: rgba(255, 0, 0, 0.5);
-  border: 2px solid #ffffff;
-  /* Adding border to damage bar */
-  width: 100px;
-  /* Example width */
-  height: 20px;
-  /* Example height */
-}
-
-#touch-controls {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  display: none;
-  /* Varsayılan olarak gizli */
-  grid-template-columns: repeat(3, 60px);
-  grid-template-rows: repeat(3, 60px);
-  gap: 10px;
-}
-
-@media (max-width: 768px) {
-  #touch-controls {
-    display: grid;
-    /* Mobil cihazlarda göster */
-  }
-}
-
-/* Mobil cihazlar için özelleştirmeler */
-@media (max-width: 768px) {
-  #info-panel {
-    font-size: 14px;
-  }
-
-  #touch-controls {
-    grid-template-columns: repeat(3, 50px);
-    grid-template-rows: repeat(3, 50px);
-  }
-
-  #touch-controls div {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
-}
-
-#game-container {
-  width: 100%;
+  font-family: Tahoma, Arial, sans-serif;
   height: 100vh;
-}
-
-#ui-container {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  color: white;
-  font-family: 'Arial', sans-serif;
-  font-size: 18px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-  user-select: none;
-  padding: 15px;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  min-width: 200px;
-}
-
-#damage-bar {
-  width: 100%;
-  height: 20px;
-  background-color: rgba(255, 0, 0, 0.3);
-  border-radius: 10px;
   overflow: hidden;
-  margin: 10px 0;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.3s ease;
+  background: #1d6ad2;
 }
 
-#speed-value, #pedestrian-count {
-  margin: 8px 0;
-  font-weight: bold;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#damage-bar {
-  width: 200px;
-  height: 20px;
-  background-color: rgba(255, 0, 0, 0.5);
+#desktop {
+  height: calc(100vh - 38px);
+  background: linear-gradient(170deg, #5fa9ff, #3f88ea 50%, #2f73d8);
   position: relative;
-  border: 1px solid white;
-  margin-bottom: 10px;
+  overflow: hidden;
 }
 
-#speed-value,
-#pedestrian-count {
-  margin-top: 5px;
-}
-
-#key-info-panel {
+.desktop-icon {
   position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
+  width: 82px;
+  color: #fff;
   text-align: center;
-  z-index: 1000;
+  cursor: pointer;
+  user-select: none;
 }
 
-#touch-controls {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  display: none;
-  /* Varsayılan olarak gizli */
-  grid-template-columns: repeat(3, 60px);
-  grid-template-rows: repeat(3, 60px);
-  gap: 10px;
+.desktop-icon .icon {
+  font-size: 30px;
 }
 
-/* Sadece mobil cihazlarda görüntüle */
-@media (max-width: 768px) {
-  #touch-controls {
-    display: grid;
-  }
+.desktop-icon .label {
+  font-size: 12px;
+  text-shadow: 1px 1px 2px #000;
 }
 
-#touch-controls div {
-  width: 60px;
-  height: 60px;
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
+#taskbar {
+  height: 38px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: white;
-  user-select: none;
+  gap: 8px;
+  background: linear-gradient(180deg, var(--xp-blue), var(--xp-blue-dark));
+  border-top: 1px solid #7fb2ff;
+  padding: 4px;
+}
+
+#start-button {
+  border: 1px solid #1a6225;
+  background: linear-gradient(180deg, #4caf50, var(--xp-green));
+  color: #fff;
+  border-radius: 16px;
+  padding: 4px 16px;
+  font-weight: 700;
+}
+
+#task-buttons {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+  overflow: auto;
+}
+
+.task-btn {
+  max-width: 180px;
+  border: 1px solid #2056b0;
+  background: #3c7de4;
+  color: #fff;
+  border-radius: 4px;
+  padding: 3px 10px;
+}
+
+#tray {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#lang-toggle {
+  border: 1px solid #8eb7ff;
+  background: #2a6fd8;
+  color: #fff;
+  border-radius: 3px;
+  width: 42px;
+}
+
+.window {
+  position: absolute;
+  min-width: 240px;
+  min-height: 170px;
+  border: 2px solid var(--window-border);
+  border-radius: 6px 6px 0 0;
+  background: #efefef;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.title-bar {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  color: #fff;
+  background: var(--title-gradient);
+  cursor: move;
+}
+
+.title-bar .controls button {
+  width: 24px;
+  height: 20px;
+  border: 1px solid #113e8d;
+  border-radius: 2px;
+  background: #e6ecff;
+}
+
+.window-content {
+  height: calc(100% - 28px);
+  background: #fff;
+  padding: 8px;
+  overflow: auto;
+}
+
+.resize-handle {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  cursor: nwse-resize;
+  background: linear-gradient(135deg, transparent 50%, #2f62b9 50%);
+}
+
+.context-menu {
+  position: fixed;
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  background: #f7f7f7;
+  border: 1px solid #9f9f9f;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.35);
+  z-index: 9999;
+  min-width: 170px;
+}
+
+.context-menu li {
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.context-menu li:hover {
+  background: #2f70de;
+  color: #fff;
+}
+
+textarea,
+input,
+select,
+button {
+  font-family: inherit;
+}
+
+.paint-canvas {
+  border: 1px solid #555;
+  cursor: crosshair;
+}
+
+.mine-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 26px);
+  gap: 2px;
+}
+
+.mine-cell {
+  width: 26px;
+  height: 26px;
+  border: 1px solid #9f9f9f;
+  background: #ddd;
+  font-weight: 700;
 }
